@@ -27,7 +27,6 @@ async function index(req, res, next) {
         criteria = { ...criteria, category: category._id };
       }
     }
-
     if (tags.length) {
       tags = await Tag.find({ name: { $in: tags } });
       criteria = { ...criteria, tags: { $in: tags.map((tag) => tag._id) } };

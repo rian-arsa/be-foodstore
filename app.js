@@ -3,11 +3,15 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+
 const cors = require("cors");
 const dotenv = require("dotenv");
+
 const productRouter = require("./app/product/router");
 const categoryRouter = require("./app/category/router");
 const tagRouter = require("./app/tag/router");
+
+const authRouter = require("./app/auth/router");
 
 var app = express();
 
@@ -27,6 +31,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/api/v1", productRouter);
 app.use("/api/v1", categoryRouter);
 app.use("/api/v1", tagRouter);
+
+app.use("/auth", authRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
