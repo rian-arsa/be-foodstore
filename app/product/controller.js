@@ -38,7 +38,9 @@ async function index(req, res, next) {
       .populate("category")
       .populate("tags");
 
-    return res.json(products);
+    let count = await Product.find(criteria).countDocuments();
+
+    return res.json({ data: products, count });
   } catch (err) {
     next(err);
   }
