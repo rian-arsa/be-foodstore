@@ -12,6 +12,7 @@ const categoryRouter = require("./app/category/router");
 const tagRouter = require("./app/tag/router");
 const wilayahRouter = require("./app/wilayah/router");
 const deliveryRouter = require("./app/delivery-address/router");
+const orderRouter = require("./app/order/router");
 
 const authRouter = require("./app/auth/router");
 
@@ -35,6 +36,7 @@ app.use("/api/v1", categoryRouter);
 app.use("/api/v1", tagRouter);
 app.use("/api/v1", wilayahRouter);
 app.use("/api/v1", deliveryRouter);
+app.use("/api/v1", orderRouter);
 
 app.use("/auth", authRouter);
 
