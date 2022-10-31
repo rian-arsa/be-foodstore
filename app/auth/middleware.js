@@ -24,8 +24,6 @@ async function verifyUser(req, res, next) {
       });
     }
 
-    console.log(user);
-
     (req.user = user), (req.token = token);
     next();
   } catch (err) {
